@@ -1,0 +1,238 @@
+body, html{
+	margin: 0;
+}
+
+/*--------Inscription--------*/
+/*--------Inscription--------*/
+/*--------Inscription--------*/
+
+#titleInscription{
+	text-align: center;
+}
+#containerInscription{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#fullFormInscription{
+	display: flex;
+	flex-direction: row;
+
+}
+
+#verticalLineInscription{
+	border-left: 2px solid #000;
+	display: inline-block;
+	height: 150px;
+	margin: 0 20px;
+}
+
+#infoPassword{
+	font-size: 13px;
+}
+
+.message{
+	text-align: center;
+}
+
+
+/*--------Connexion--------*/
+/*--------Connexion--------*/
+/*--------Connexion--------*/
+
+#fullFormConnexion{
+	display: grid;
+	justify-content: center;
+
+	background-color: orange;
+}
+
+#titleConnexion{
+	
+	
+	color: white;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	border-style: solid;
+	border-color: black;
+	border-width: 5px;
+}
+
+#formConnexion{
+	display: flex;
+	flex-direction: row;
+	
+}
+
+#formulaire{
+	border-style: solid;
+	border-color: black;
+	border-width: 5px;
+	padding: 10px;
+	text-align: center;
+}
+
+#goToInscription{
+	border-style: solid;
+	border-color: black;
+	border-width: 5px;	
+	padding: 10px;
+	text-align: center;
+}
+
+
+/*--------Profil--------*/
+/*--------Profil--------*/
+/*--------Profil--------*/
+
+#allDivProfil{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#infoCompte{
+	width: 60%;
+	
+}
+
+#titleProfil{
+	text-align: center;
+}
+
+#mailProfil{
+	width: 20%;
+}
+
+#formPassword label,input {
+	display: inline-block;
+}
+
+#formPassword label {
+	width: 17%;
+	text-align: right;
+}
+
+#formPassword label+input {
+	width: 10%;
+	margin: 0 30% 0 4%;
+}
+
+#formPassword input[type=submit] {
+	position: absolute;
+	left: 13%;
+}
+
+
+
+#myPaiementAndCommande{
+	
+	width: 50%;
+}
+
+#myPaiement{
+	width: 30%;
+	height: 200px;
+	
+	
+}
+
+#myCommande{
+	width: 30%;
+	height: 200px;
+	
+}
+
+
+/*--------Admin--------*/
+/*--------Admin--------*/
+/*--------Admin--------*/
+
+#containerAdmin{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	
+}
+
+#divAdmin{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 80%;
+}
+
+#divAdmin fieldset{
+	width: 100%;
+}
+
+.button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 50%;
+	height: 200px;
+}
+
+.button button{
+	padding: 2%;
+	background-color: white;
+	color: black;
+}
+
+
+
+
+#tableListeUser{
+	border : solid black 2px;
+}
+
+#tableListeUser td{
+	width: 10%;
+	text-align: center;
+	border-style: solid none none none;
+}
+
+
+
+
+
+
+
+#showPlat{
+	display: flex;
+	justify-content: center;
+}
+
+textarea{
+	resize: none;
+}
+
+
+#divAddPlat button{
+	float: left;
+}
+
+#divAddPlat p{
+	text-align: center;
+}
+
+#addPlatAndCategorie{
+	display: flex;
+	
+	text-align: center;
+
+}
+
+
+
+#verticalLinePlatAndCategorie{
+	border-left: 2px solid #000;
+	display: inline-block;
+	height: 400px;
+	margin: 0 20px;
+}
