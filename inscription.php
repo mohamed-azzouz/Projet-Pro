@@ -61,7 +61,7 @@ if (isset($_SESSION['id']))
 						<br>
 						<br>
 
-						<input type="password" name="mdp" id="mdpInscription" pattern="{6,}" placeholder="Mot de passe *" required>
+						<input type="password" name="mdp" id="mdpInscription" minlength="6" placeholder="Mot de passe *" required>
 						<p id="infoPassword">Au moins 6 caractères</p>
 						<br>
 
