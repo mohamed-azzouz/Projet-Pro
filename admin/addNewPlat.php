@@ -83,7 +83,8 @@
 		if (isset$_POST["addPlat"]) 
 		{
 			$namePlat = htmlspecialchars($_POST["namePlat"]);
-			$descriptionPlat = htmlspecialchars($_POST[""])
+			$descriptionPlat = htmlspecialchars($_POST["descriptionPlat"]);
+			
 		}
 		?>
 	</main>
