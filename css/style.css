@@ -17,7 +17,7 @@ html,body{
 }
 
 #header{
-	padding-top: 2.5rem;
+	padding-top: 2.3rem;
     background: linear-gradient(rgb(255 101 101 / 0.9), rgb(255 175 0 / 0.9));
 }
 
@@ -26,7 +26,6 @@ html,body{
     background-repeat: no-repeat;
     background-size: cover;
 	background-position-y: -44rem; */
-	min-height: 65.6%;
 }
 
 /* ACCUEIL */
@@ -52,6 +51,12 @@ html,body{
     background-size: contain;
     background-repeat: no-repeat;
     padding: 0;
+}
+
+#box-kabsaNavLogo{
+	padding-left: 1rem;
+    display: flex;
+	background: linear-gradient(to right, #8fe20b, white);
 }
 
 .navbar-nav{
@@ -115,8 +120,13 @@ html,body{
     padding: 0.4rem 0.6rem 0.35rem 0.6rem;
 }
 
+#navbarNav{
+	height: 5rem;
+}
 
-
+.navigation{
+	height: 5rem;
+}
 
 
 
@@ -208,11 +218,69 @@ html,body{
 
 #el-menu{
 	padding: 0;
+	border-top: 2px inset black;
+	border-bottom: 2px inset black;
 }
 
 
+/*////// Les formulaires //////*/
+
+.input-form{
+	display: flex;
+	flex-direction: column-reverse;
+	margin: 1.2em 0;
+}
+
+input, label, button {
+	transition: all .3s;
+}
+
+label{
+	transform: translate(10px, -15px);
+	cursor: text;
+	transform-origin: left top;
+	position: absolute;
+}
+
+input{
+	padding: 10px;
+	border: none; outline: none;
+	border-bottom: 2px solid grey;
+}
+
+button{
+	border: 0; padding: 10px 15px;
+	cursor: pointer;
+	color: white;
+	background-color: #ff9234;
+}
+
+.submit-form{
+	text-align: right;
+}
+
+input::placeholder {
+	opacity: 0;
+}
+
+input:focus,
+input:not(:placeholder-shown){
+	border-bottom: 2px solid red;
+}
+
+input:not(:placeholder-shown) ~ label,
+input:focus ~ label{
+	transform: translate(10px, -30px) scale(.8);
+}
 
 
+#co-sub-box{
+	display: flex;
+    width: 40%;
+    justify-content: space-around;
+    /* align-items: center; */
+    margin: 5em;
+}
 
 
 
@@ -264,17 +332,17 @@ html,body{
     padding: 0;
     border-bottom: 1px solid #666;
     position: absolute;
-    top: 60px;
+    top: 80px;
     display: flex;
     list-style-type: none;
-    left: -206px;
-    width: 109.5rem;
-    background-color: #27AE60;
+    left: -960px;
+    width: 87.5rem;
+    background-color: #ffffff;
     z-index: 10;
     padding: 1rem 0;
-    justify-content: space-evenly;
-	box-shadow: 0px 0px 2px black;
-	border-radius: 0 0 5px 5px;
+	justify-content: space-evenly;
+	background: linear-gradient(90deg,#8fe20b -1%, white 18%);
+	border-top: 2px dotted black;
 }
 
 .repas-menu-img{
@@ -307,7 +375,9 @@ html,body{
 #footer{
 	box-shadow: 0px 0px 4px black;
 	border-top: 1px ridge black;
-	background: linear-gradient(#8bffbe, white);
+	background: linear-gradient( 
+		90deg
+		 ,#ffdabf 2%, white 39% , #8fe20b 125%);		
 }
 
 #footer-row{
@@ -315,18 +385,21 @@ html,body{
     align-items: center;
     justify-content: space-between;
     color: black;
+    padding: 0 1rem;
 }
 
 #footer-box-logo-para{
-	display: flex;
-    width: 49rem;
-    justify-content: space-evenly;
+    display: flex;
+    width: 77rem;
+    justify-content: space-between;
 }
 
 #footer-box-para{
 	display: flex;
-	flex-direction: column;
-	justify-content:center;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    color: #545454d1;
 }
 
 .para-footer{
@@ -373,9 +446,11 @@ html,body{
 }
 
 .title-contact-paiement{
-	display: flex;
+    display: flex;
     margin: 0;
     padding: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    text-decoration: underline;
 }
 
 #box-phone,#box-mail{
@@ -393,8 +468,12 @@ html,body{
 }
 
 #copyright{
-	background-color: #8bffbe85;
-    border-top: 0.1px ridge #0000001c;
+	background: linear-gradient( 90deg,
+		#f7be95 2%, white 39% , #5b8e0a 125%);
+		border-top: 1px inset #770069b8;
+		box-shadow: 0px -0.5px 7px #1b160c4d;
+		font-weight: bold;
+		color: #5d5d5dd1;
 }
 
 #title-paiement{
@@ -404,6 +483,28 @@ html,body{
 #title-a-propos{
 	padding-bottom: 0.2rem;
 }
+
+#foot-box-contact{
+	padding: 1rem;
+    border: 2px ridge black;
+    background-color: white;
+}
+
+#foot-box-paiement{
+	border: 2px ridge black;
+    background-color: white;
+	height: 7.461rem;
+    padding: 0.4rem 1rem 1rem 1rem;
+}
+
+#box-title-and-paiement{
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 
 
 /*form styles*/
@@ -641,7 +742,6 @@ html,body{
 #liste-jours{
 	width: 12rem;
 	background-color:red;
-	display: none;
 }
 
 #section-plats{
@@ -675,20 +775,24 @@ html,body{
     padding: 1rem 1rem 0 1rem;
 }
 
-.btn-moins-qt-plats{
+#btn-moins-qt-plats{
 	border-radius: 40px;
-    padding: 0.33rem 0.46rem 0.27rem 0.46rem;
+    padding: 0.19rem 0.40rem 0.03rem 0.41rem;
     background-color: #27AE60;
     color: white;
 }
 
 .btn-plus-qt-plats{
 	border-radius: 40px;
-    padding: 0.33rem 0.46rem 0.27rem 0.46rem;
+    padding: 0.24rem 0.46rem 0.12rem 0.46rem;
     background-color: #27AE60;
     color: white;
 }
 
+.box-qt-plats{
+	display: flex;
+	align-items: center;
+}
 
 
 
@@ -760,6 +864,21 @@ html,body{
 	padding-right: 0.4rem;
 }
 
+.para-description-modal{
+	height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.para-prix-modal{
+	height: 14rem;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 
 
 
@@ -772,7 +891,7 @@ html,body{
     box-shadow: 0.5px 0.5px 3px black;
 }
 
-#inp-qt-panier{	
+.inp-qt-panier{	
     width: 2rem;
     text-align: center;
     font-weight: bold;

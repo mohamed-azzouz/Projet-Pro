@@ -13,7 +13,7 @@ class Users{
     private $id_droits;
     private $connmdp;
 
-    public function __construct($nom = "",$prenom = "",$mdp = "",$mdp2 = "",$mail = "",$tel = "",$connmdp)
+    public function __construct($nom = "",$prenom = "",$mdp = "",$mdp2 = "",$mail = "",$tel = "",$connmdp = "")
     {
         $this->mdp = password_hash($mdp,PASSWORD_DEFAULT);
         $this->nom = filter_var($nom,FILTER_SANITIZE_SPECIAL_CHARS);
@@ -69,7 +69,6 @@ class Users{
     }
 
     public function connect(){
-        var_dump("ok");
         $pdo = monPDO::getPDO();
         $sql = "SELECT * FROM utilisateurs WHERE mail = :mail";
         $req = $pdo->prepare($sql);
@@ -78,21 +77,12 @@ class Users{
         ]);
         $result = $req->fetch();
         if($result){
-        var_dump("ok");
-        var_dump($result["mdp"]);
-        var_dump($this->mdp);
-
             if (!filter_var($this->mail, FILTER_VALIDATE_EMAIL) === false) {
-                var_dump($result);
-        var_dump("ok");
-
                 if(password_verify($this->connmdp,$result["mdp"])){
-        var_dump("ok");
-
-                    
+                    $this->prenom = $result["prenom"];
                     return "ok";
                 } else {
-                    $error = "le mdp est incorrect";
+                    $error = "ok";
                     return $error;
                 }
             } else {
@@ -104,4 +94,8 @@ class Users{
             return $error;
         }
     }
+
+    public function getNom(){return $this->nom;}
+    public function getLogin(){return $this->mail;}
+    public function getDroits(){return $this->id_droits;}
 }

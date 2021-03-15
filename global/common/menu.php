@@ -5,11 +5,16 @@
     require_once("../content/Panier.php");
 
     $categories = PlatDAO::getCat();
+    echo "1";
+    var_dump($_SESSION);
+
 ?>
 <header id="header" class="position-sticky sticky-top">
 
-    <nav class="navbar navbar-expand-lg bg-light" id="el-menu">
-        <a class="navbar-brand" id="kabsaNavLogo" href="../accueil/index.php"></a>
+    <nav class="navbar navbar-expand-lg bg-white" id="el-menu">
+        <div id="box-kabsaNavLogo">
+            <a class="navbar-brand" id="kabsaNavLogo" href="../accueil/index.php"></a>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,7 +43,12 @@
                         <p class="paragraphe-appel" id="para-appel2">prix d'un appel local</p>
                     </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link  liste-header-nav p-3 text-body disabled" href="#">Compte</a>
+                    <?php if(isset($_SESSION["login"])): ?>
+                        <a class="nav-link liste-header-nav p-3 text-body" href="#"><?= $_SESSION["user"]->user; ?></a>
+                        <a class="nav-link liste-header-nav p-3 text-bode" href="<?php session_destroy(); ?>">Se déconnecter</a>
+                    <?php else: ?>
+                        <a class="nav-link  liste-header-nav p-3 text-body" href="../content/inscription.php">Compte</a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>

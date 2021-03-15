@@ -9,17 +9,14 @@ $titre = "<a class='lien-accueil' href='index.php'>Accueil</a> / <a href'#'>$pag
 require_once("User.php");
 
 
-
 if(isset($_POST["inscription"])){
     $user = new Users($_POST["nom"],$_POST["prenom"],$_POST["mdp"],$_POST["mdp2"],$_POST["email"],$_POST["tel"]);
     if(!empty($_POST["nom"]) && isset($_POST["nom"]) && !empty($_POST["prenom"]) && isset($_POST["prenom"]) && !empty($_POST["mdp"]) && isset($_POST["mdp"]) && !empty($_POST["mdp2"]) && isset($_POST["mdp2"]) && !empty($_POST["email"]) && isset($_POST["email"]) && !empty($_POST["tel"]) && isset($_POST["tel"])){
         $verif = $user->verify();
-        var_dump("test1");
         if($verif == "ok"){
-            var_dump("test2");
             $inscrit = $user->inscription();
             if($inscrit == "ok"){
-                var_dump("test3");
+                header("Location: inscription.php");
             }
         } else {
             $error = $verif;
@@ -33,8 +30,10 @@ if(isset($_POST["connexion"])){
     if(isset($_POST["mail"]) && isset($_POST["password"])){
         $co = $user->connect();
         if($co == "ok"){
+            $_SESSION["login"] = $user;
             echo "bravo vous êtes connecté";
         } else {
+            echo $co;
             echo "problème lors de la connexion";
         }
     }
@@ -42,23 +41,70 @@ if(isset($_POST["connexion"])){
 
 
 ?>
+<section class="d-flex justify-content-center">
+    <div id="co-sub-box">
+        <form action="" method="post" class="d-flex flex-column justify-content-between" style="height: 21em;">
+            <h5 class="text-center">L'inscription</h5>
 
-<form action="" method="post">
-    <input type="text" name="nom" placeholder="Nom...">
-    <input type="text" name="prenom" placeholder="Prénom...">
-    <input type="password" name="mdp" placeholder="Mot de passe...">
-    <input type="password" name="mdp2" placeholder="Confirmer...">
-    <input type="email" name="email" placeholder="Email...">
-    <input type="tel" name="tel" pattern="0[1-68]([-. ]?[0-9]{2}){4}">
-    <input type="submit" name="inscription" value="S'inscrire">
-    <?php if(isset($error)){echo $error;} ?>
-</form>
+            <div class="d-flex">
+                <div class="input-form mr-2">
+                    <input type="text" name="nom" placeholder=" ">
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="input-form">
+                    <input type="text" name="prenom" placeholder=" ">
+                    <label for="prenom">Prénom</label>
+                </div>
+            </div>
+            <article class="d-flex">
+                <div class="mr-2 d-flex flex-column justify-content-around" style="height:10em;">
+                    <div class="input-form">
+                        <input type="password" name="mdp" placeholder=" ">
+                        <label for="mdp">Mot de passe</label>
+                    </div>
+                    <div class="input-form">
+                        <input type="password" name="mdp2" placeholder=" ">
+                        <label for="mdp2">Confirmer le mot de passe</label>
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-around" style="height:10em;">
+                    <div class="input-form">
+                        <input type="email" name="email" placeholder=" ">
+                        <label for="email">Adresse email</label>
+                    </div>
+                    <div class="input-form">
+                        <input type="tel" name="tel" placeholder=" " pattern="0[1-68]([-. ]?[0-9]{2}){4}">
+                        <label for="tel">Numéro de téléphone</label>
+                    </div>
+                </div>
+            </article>       
+            <div class="submit-form">
+                <button type="submit" name="inscription">Inscription</button>
+                <?php if(isset($error)){echo $error;} ?>
+            </div>
+        </form>
 
-<form action="" method="post">
-    <input type="mail" name="mail" placeholder="Mail...">
-    <input type="password" name="password" placeholder="Mot de passe...">
-    <input type="submit" name="connexion" value="Se connecter">
-</form>
+        <form action="" method="post" class="d-flex flex-column justify-content-between">
+            <h5 class="text-center">La connexion</h5>
+            <div class="d-flex flex-column" style="height: 11em;">
+                <div class="input-form">
+                    <input type="mail" id="mail" name="mail" placeholder=" " required>
+                    <label for="mail">Adresse email</label>
+                </div>
+                <div class="input-form">
+                    <input type="password" id="password" name="password" placeholder=" " required>
+                    <label for="password">Mot de passe</label>
+                </div>
+            </div>
+            
+            <div class="submit-form">
+                <button type="submit" name="connexion">Connexion</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+
 
 <?php
 /************************

@@ -5,14 +5,6 @@ $_SESSION["objectif"] = "";
 $_SESSION["age"] = "";
 $_SESSION["habitude"] = "";
 
-// if(isset($_GET)){
-//     $_SESSION["genre"] = $_GET;
-//     $sessionGenre = $_SESSION;
-//     var_dump($sessionGenre);
-// } else{
-//     "";
-// }
-
 require_once("../content/Panier.php");
 
 ?>
@@ -29,31 +21,31 @@ $panier = new Panier();
         <div
             class="slide active"
             style="
-            background-image: url('https://images.unsplash.com/photo-1610620746460-de78cf3d1705?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80');
+            background-image: url('../../img/carrou1.jpg');
             "
         ></div>
         <div
             class="slide"
             style="
-            background-image: url('https://images.unsplash.com/photo-1609589079958-8192b9cdab91?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2100&q=80');
+            background-image: url('../../img/carrou2.jpg');
             "
         ></div>
         <div
             class="slide"
             style="
-            background-image: url('https://images.unsplash.com/photo-1605718665998-85fbd49c5eff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2100&q=80');
+            background-image: url('../../img/carrou3.jpg');
             "
         ></div>
         <div
             class="slide"
             style="
-            background-image: url('https://images.unsplash.com/photo-1609589079852-0b1c745a71ec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80');
+            background-image: url('../../img/carrou4.jpg');
             "
         ></div>
         <div
             class="slide"
             style="
-            background-image: url('https://images.unsplash.com/photo-1604916010805-18ea15fa6d32?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80');
+            background-image: url('../../img/carrou5.jpg');
             "
         ></div>
         <button class="arrow left-arrow" id="left">

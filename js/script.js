@@ -7,80 +7,154 @@ var animating; //flag to prevent quick multi-click glitches
 let poke = 0;
 var formPerso = $("#bouton-fermeture-form-perso");
 
-// Autre façon de faire pour récupérer les éléments
-
-// function clicksurfemme(event) {
-// 	console.log(event);
-// 	choices['genre'] = 'femme';
-// }
-
-// function clicksurhomme() {
-// 	choices['genre'] = 'homme';
-// }
-
-// function clicksur2030() {
-// 	choices['age'] = '2030';
-// }
-
-// function clicksur3040() {
-// 	choices['age'] = '3040';
-// }
-
-// function clicksur4050() {
-// 	choices['age'] = '4050';
-// }
-
-// $("#img-femme").click(clicksurfemme);
-// $("#img-homme").click(clicksurhomme);
-// $("#img-2030").click(clicksur2030);
-// $("#img-3040").click(clicksur3040);
-// $("#img-4050").click(clicksur4050);
-
- // Partie pour le formulaire perso //
-
-// Je crée un objet nommé choix
-var choix = {};
-
-
-function clickOnGenre(event){
-	// event.target fait référence a l'img choix genre cliqué dont je vais récupérer la valeur de l'id
-	// la propriété genre de l'objet choix (tableau assiociatif) sera donc la valeur de l'id récupéré.
-	choix['genre'] = event.target.attributes.id.value
-}
-
-function clickOnAge(event){
-	choix['age'] = event.target.attributes.id.value;
-}
-
-function clickOnObj(event) {
-	choix['obj'] = event.target.attributes.id.value;
-}
-
-function clickOnHab(event) {
-	choix['habitude'] = event.target.attributes.id.value;
-}
-
-// Au clique je récupérerait la valeur de l'id grace a la fonction liée au click
-$(".img-choix").click(clickOnGenre);
-$(".img-age").click(clickOnAge)
-$(".img-obj").click(clickOnObj);
-$(".img-habitude").click(clickOnHab);
 
 
 
-	// menu code
-	$(".navigation .toggleSubMenu").hover(function(){
-		$(".subMenu").stop().slideDown();
-	},function(){
-		$(".subMenu").stop().slideUp();
+var feculent = $('.feculent');
+var legume = $('.legumes');
+var proteine =	$('.proteines');
+var feculentChoix;
+var proteineChoix;
+var legumeChoix;
+
+$(feculent).change(function(event){
+	if($(this).prop("checked")){
+	feculentChoix = event.target.attributes.id.value;
+	}
+	$.ajax({
+		url:"http://localhost/projet-Pro/global/content/pouet3.php",
+		method:"POST",
+		data:{
+			"feculent":feculentChoix
+		},
+		success:(data)=>{
+			console.log(data);
+			if(data == "OK"){
+				console.log(feculentChoix);
+			}
+		},
+		failure:(data) => {
+			console.log(data);
+		}
 	})
+});
+
+$(proteine).change(function(event){
+		if($(this).prop("checked")){
+		proteineChoix = event.target.attributes.id.value;
+		}
+		$.ajax({
+			url:"http://localhost/projet-Pro/global/content/pouet2.php",
+			method:"POST",
+			data:{
+				"proteine":proteineChoix
+			},
+			success:(data)=>{	
+				console.log(data);
+				if(data == "OK"){
+					console.log(proteineChoix);
+				}
+			},
+			failure:(data) => {
+				console.log(data);
+			}
+		})
+});
+
+$(legume).change(function(event){
+	legumeChoix = event.target.attributes.id.value;
+	let actionLegume = "unchecked";
+	if ($(this).prop("checked") == true) {
+		actionLegume = "checked";
+	}
+	$.ajax({
+		url:"http://localhost/projet-Pro/global/content/pouet.php",
+		method:"POST",
+		data:{
+			'actionLegume': actionLegume,
+			'legume' : legumeChoix
+		},
+		success:(data) => {
+			console.log(data);
+			if(data == "OK"){
+				console.log(legumeChoix);
+			}
+		},
+		failure:(data) => {
+			console.log(data);
+		}	
+	});
+});
 
 
 
 
 
 
-	//
+
+
+
+	// Autre façon de faire pour récupérer les éléments
+
+	// function clicksurfemme(event) {
+	// 	console.log(event);
+	// 	choices['genre'] = 'femme';
+	// }
+
+	// function clicksurhomme() {
+	// 	choices['genre'] = 'homme';
+	// }
+
+	// function clicksur2030() {
+	// 	choices['age'] = '2030';
+	// }
+
+	// function clicksur3040() {
+	// 	choices['age'] = '3040';
+	// }
+
+	// function clicksur4050() {
+	// 	choices['age'] = '4050';
+	// }
+
+	// $("#img-femme").click(clicksurfemme);
+	// $("#img-homme").click(clicksurhomme);
+	// $("#img-2030").click(clicksur2030);
+	// $("#img-3040").click(clicksur3040);
+	// $("#img-4050").click(clicksur4050);
+
+	// Partie pour le formulaire perso //
+
+	// Je crée un objet nommé choix
+	var choix = {};
+
+
+	function clickOnGenre(event){
+		// event.target fait référence a l'img choix genre cliqué dont je vais récupérer la valeur de l'id
+		// la propriété genre de l'objet choix (tableau assiociatif) sera donc la valeur de l'id récupéré.
+		choix['genre'] = event.target.attributes.id.value
+	}
+
+	function clickOnAge(event){
+		choix['age'] = event.target.attributes.id.value;
+	}
+
+	function clickOnObj(event) {
+		choix['obj'] = event.target.attributes.id.value;
+	}
+
+	function clickOnHab(event) {
+		choix['habitude'] = event.target.attributes.id.value;
+	}
+
+	// Au clique je récupérerait la valeur de l'id grace a la fonction liée au click
+	$(".img-choix").click(clickOnGenre);
+	$(".img-age").click(clickOnAge)
+	$(".img-obj").click(clickOnObj);
+	$(".img-habitude").click(clickOnHab);
+
+
+
 
 	$(".next").click(function(){
 		if(animating) return false;
@@ -172,7 +246,7 @@ $(".img-habitude").click(clickOnHab);
 		// j'appelle la fonction ajax
 		$.ajax({
 			//on demande au serveur d'aller récupérér les données dans la page pascal.php
-			url: 'http://localhost/projet-Pro/global/content/pascal.php',
+			url: 'http://localhost/projet-Pro/global/content/infosperso.php',
 			// on utilise la méthode post
 			method: 'POST',
 			// grace a l'argument data on passe notre tableau assiocatif a php
@@ -350,7 +424,8 @@ $(".img-habitude").click(clickOnHab);
 		$("#carouselExampleControls").css("display","block");
 		$("#main").addClass("main");
 		$(".slider-container").css("display","block");
-	})
+	});
+
 
 
 	const body = document.body;
@@ -369,24 +444,25 @@ $(".img-habitude").click(clickOnHab);
 	slides[activeSlide].classList.add("active");
 	};
 
-	rightButton.addEventListener("click", () => {
-	activeSlide++;
-	if (activeSlide > slides.length - 1) activeSlide = 0;
-	setBackground();
-	setActiveSlide();
-	});
+	// rightButton.addEventListener("click", () => {
+	// activeSlide++;
+	// if (activeSlide > slides.length - 1) activeSlide = 0;
+	// setBackground();
+	// setActiveSlide();
+	// });
 
-	leftButton.addEventListener("click", () => {
-	activeSlide--;
-	if (activeSlide < 0) activeSlide = slides.length - 1;
-	setBackground();
-	setActiveSlide();
-	});
+	// leftButton.addEventListener("click", () => {
+	// activeSlide--;
+	// if (activeSlide < 0) activeSlide = slides.length - 1;
+	// setBackground();
+	// setActiveSlide();
+	// });
 
-	setBackground();
-
-
-	// Données des plats pour modal
+	// setBackground();
 
 
+	
+	
+
+	
 });
